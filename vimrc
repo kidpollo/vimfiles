@@ -40,17 +40,16 @@ set nobackup                      " Don't make a backup before overwriting a fil
 set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 
-" UNCOMMENT TO USE
-set tabstop=2                    " Global tab width.
-set shiftwidth=2                 " And again, related.
-set expandtab                    " Use spaces instead of tabs
+set tabstop=2                     " Global tab width.
+set shiftwidth=2                  " And again, related.
+set expandtab                     " Use spaces instead of tabs
 
 set laststatus=2                  " Show the status line all the time
 
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{rvm#statusline()}\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
-colorscheme moria      " set color scheme
+colorscheme zmrok      " set color scheme
 set background=dark    " set colors to handle dark backgrounds
 
 " Mappings
@@ -78,3 +77,9 @@ let g:notesWordSeparator = '_'
 " TagList plugin configuration
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 
+" Append closing characters
+inoremap        (  ()<Left>
+inoremap        [  []<Left>
+inoremap        {  {}<Left>
+inoremap        "  ""<Left>
+inoremap        '  ''<Left>

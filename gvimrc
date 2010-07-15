@@ -8,12 +8,10 @@ set guioptions-=T                 " Hide toolbar.
 set background=light              " Background.
 set lines=45 columns=150          " Window dimensions.
 
-colorscheme moria      " set color scheme
-set background=dark    " set colors to handle dark backgrounds
+colorscheme zmrok                 " Set color scheme
+set background=dark               " Set colors to handle dark backgrounds
 
-"turn off needless toolbar on gvim/mvim
-set guioptions-=T
+set guioptions-=T                 " Turn off needless toolbar on gvim/mvim
 
-" Uncomment to use.
 set guioptions-=r                 " Don't show right scrollbar
 set guioptions-=l                 " Don't show left scrollbar
