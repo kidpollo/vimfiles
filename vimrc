@@ -1,11 +1,13 @@
-" Example Vim configuration.
-" Copy or symlink to ~/.vimrc or ~/_vimrc.
+" Copy or symlink to ~/.vimrc 
 
 set nocompatible                  " Must come first because it changes other options.
+
+filetype off
 
 call pathogen#runtime_append_all_bundles() " load pathogen
 
 syntax enable                     " Turn on syntax highlighting.
+
 filetype plugin indent on         " Turn on file type detection.
 
 runtime macros/matchit.vim        " Load the matchit plugin.
@@ -49,18 +51,19 @@ set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{rvm#statusline()}\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
-colorscheme zmrok      " set color scheme
-set background=dark    " set colors to handle dark backgrounds
+colorscheme railscasts    " set color scheme
+set background=dark       " set colors to handle dark backgrounds
 
 " Mappings
 
 " Change leader key from \ to ,
 let mapleader = ","
 
-map <leader>s :TlistToggle<cr>
-map <leader>f :FuzzyFinderTextMate<cr>
-map <leader>b :BufExplorer<cr>
-map <leader>t :NERDTreeToggle<cr>
+map <leader>s :TlistToggle<CR>
+map <leader>f :FuzzyFinderTextMate<CR>
+map <leader>l :BufExplorer<CR>
+map <leader>t :NERDTreeToggle<CR>
+map <leader>w :b#<CR>
 
 " Automatic fold settings for specific files. Uncomment to use.
 " autocmd FileType ruby       set foldmethod=syntax
@@ -70,16 +73,23 @@ autocmd FileType html       setlocal shiftwidth=4 tabstop=4
 
 " Vim Notes plugin configuration
 let g:notesRoot='~/Notes'
-let g:notesFileExtension = '.rdoc'
-let g:notesFileType = 'rdoc'
+let g:notesFileExtension = '.textile'
+let g:notesFileType = 'textile'
 let g:notesWordSeparator = '_'
 
 " TagList plugin configuration
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 
-" Append closing characters
-inoremap        (  ()<Left>
-inoremap        [  []<Left>
-inoremap        {  {}<Left>
-inoremap        "  ""<Left>
-inoremap        '  ''<Left>
+" append closing characters
+inoremap (  ()<Left>
+inoremap [  []<Left>
+inoremap {  {}<Left>
+inoremap "  ""<Left>
+inoremap '  ''<Left>
+
+" keep selection after indent
+vmap < <gv
+vmap > >gv
+
+imap <S-Tab> <C-N> " autocomplete with Shift + Tab
+ima  jj <Esc>      " Esc alternative

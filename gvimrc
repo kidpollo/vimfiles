@@ -8,7 +8,7 @@ set guioptions-=T                 " Hide toolbar.
 set background=light              " Background.
 set lines=45 columns=150          " Window dimensions.
 
-colorscheme zmrok                 " Set color scheme
+colorscheme railscasts            " Set color scheme
 set background=dark               " Set colors to handle dark backgrounds
 
 set guioptions-=T                 " Turn off needless toolbar on gvim/mvim

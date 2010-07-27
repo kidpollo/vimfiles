@@ -28,9 +28,6 @@
 [submodule "bundle/vim-syntastic"]
 	path = bundle/vim-syntastic
 	url = git://github.com/scrooloose/syntastic.git
-[submodule "snippets"]
-	path = snippets
-	url = git://github.com/mexpolk/snipmate-snippets.git
 [submodule "bundle/rvm"]
 	path = bundle/rvm
 	url = git://github.com/csexton/rvm.vim.git
@@ -55,6 +52,15 @@
 [submodule "bundle/vim-unimpaired"]
 	path = bundle/vim-unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
-[submodule "bundle/supertab"]
-	path = bundle/supertab
-	url = http://github.com/ervandew/supertab.git
+[submodule "bundle/textile.vim"]
+	path = bundle/textile.vim
+	url = http://github.com/timcharper/textile.vim.git
+[submodule "bundle/vim-fakeclip"]
+	path = bundle/vim-fakeclip
+	url = http://github.com/kana/vim-fakeclip.git
+[submodule "bundle/snipmate"]
+	path = bundle/snipmate
+	url = http://github.com/akitaonrails/snipmate.vim.git
+[submodule "snippets"]
+	path = snippets
+	url = git://github.com/mexpolk/snipmate-snippets.git

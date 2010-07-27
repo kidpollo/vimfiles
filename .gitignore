@@ -1,4 +1,7 @@
 .DS_Store
 tags
+doc/tags-ja
+.netrwhist
 *~
 *.swp
+*.swo
