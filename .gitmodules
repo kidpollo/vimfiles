@@ -60,7 +60,7 @@
 	url = http://github.com/kana/vim-fakeclip.git
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
-	url = http://github.com/akitaonrails/snipmate.vim.git
+	url = http://github.com/msanders/snipmate.vim.git
 [submodule "snippets"]
 	path = snippets
-	url = git://github.com/mexpolk/snipmate-snippets.git
+	url = git@github.com:mexpolk/snipmate-snippets.git 

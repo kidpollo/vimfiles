@@ -51,22 +51,20 @@ set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{rvm#statusline()}\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
-colorscheme railscasts    " set color scheme
+colorscheme ir_black      " set color scheme
 set background=dark       " set colors to handle dark backgrounds
 
 " Mappings
 
-" Change leader key from \ to ,
-let mapleader = ","
+" Change leader key from \ to 
+let mapleader = "," 
 
 map <leader>s :TlistToggle<CR>
 map <leader>f :FuzzyFinderTextMate<CR>
 map <leader>l :BufExplorer<CR>
 map <leader>t :NERDTreeToggle<CR>
-map <leader>w :b#<CR>
 
 " Automatic fold settings for specific files. Uncomment to use.
-" autocmd FileType ruby       set foldmethod=syntax
 autocmd FileType css        setlocal shiftwidth=4 tabstop=4
 autocmd FileType javascript setlocal shiftwidth=4 tabstop=4
 autocmd FileType html       setlocal shiftwidth=4 tabstop=4
@@ -81,15 +79,38 @@ let g:notesWordSeparator = '_'
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 
 " append closing characters
-inoremap (  ()<Left>
-inoremap [  []<Left>
-inoremap {  {}<Left>
-inoremap "  ""<Left>
-inoremap '  ''<Left>
+inoremap (( ()<Left>
+inoremap [[ []<Left>
+inoremap {{ {}<Left>
+inoremap "" ""<Left>
+inoremap '' ''<Left>
+inoremap \|\| \|\|<Left>
 
 " keep selection after indent
-vmap < <gv
 vmap > >gv
+vmap < <gv
+vmap <Tab> >gv
+vmap <S-Tab> <gv
 
-imap <S-Tab> <C-N> " autocomplete with Shift + Tab
-ima  jj <Esc>      " Esc alternative
+" alternate insert mode exit
+imap jj <Esc>
+
+" Map ctrl-movement keys to window switching
+map <C-k> <C-w><Up>
+map <C-j> <C-w><Down>
+map <C-l> <C-w><Right>
+map <C-h> <C-w><Left>
+
+" Switch to alternate file
+map <C-Tab> :bnext<cr>
+map <C-S-Tab> :bprevious<cr>
+
+" Map system clipboard to cmd+c (copy) and cmd+v (Paste)
+nmap <D-c> "+y
+nmap <D-v> "+p
+vmap <D-c> "+y
+vmap <D-v> "+p
+
+" Autoload vimr and gvimrc everytime it changes
+autocmd bufwritepost .vimrc source ~/.vim/vimrc
+autocmd bufwritepost .gvimrc source ~/.vim/vimrc
