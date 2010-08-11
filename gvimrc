@@ -8,7 +8,7 @@ set guioptions-=T                 " Hide toolbar.
 set background=light              " Background.
 set lines=45 columns=150          " Window dimensions.
 
-colorscheme ir_black              " Set color scheme
+colorscheme kellys                " Set color scheme
 set background=dark               " Set colors to handle dark backgrounds
 
 set guioptions-=r                 " Don't show right scrollbar
