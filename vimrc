@@ -1,5 +1,7 @@
 " Copy or symlink to ~/.vimrc
 
+set t_Co=256                      " Enable colors (must be set before syntax enable)
+
 set nocompatible                  " Must come first because it changes other options.
 
 filetype off
@@ -49,11 +51,12 @@ set expandtab                     " Use spaces instead of tabs
 
 set laststatus=2                  " Show the status line all the time
 
+set spell                         " Display spelling errors
+
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{rvm#statusline()}\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
-colorscheme kellys        " set color scheme
-set background=dark       " set colors to handle dark backgrounds
+colorscheme railscasts            " set color scheme
 
 " Mappings
 
@@ -63,7 +66,6 @@ let mapleader = ","
 map <Leader>s :TlistToggle<CR>
 map <Leader>f :FuzzyFinderTextMate<CR>
 map <Leader>l :BufExplorer<CR>
-map <Leader>t :NERDTreeToggle<CR>
 
 " Automatic fold settings for specific files. Uncomment to use.
 autocmd FileType css        setlocal shiftwidth=4 tabstop=4 softtabstop=4
@@ -122,8 +124,7 @@ autocmd BufWritePost .gvimrc source $MYGVIMRC
 
 " Auto create tags file
 set tags=./tags;
-autocmd BufWritePost *.rb,*.js :silent !ctags -R --exclude=.git --exclude=log --exclude=public/assets --exclude=public/vendor *
-nmap <Leader>g :silent !ctags -R --exclude=.git --exclude=log --exclude=public/assets --exclude=public/vendor *
+nmap <Leader>g :!/usr/local/bin/ctags -R --exclude=.git --exclude=log --exclude=public/assets --exclude=public/vendor *<CR>
 
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
@@ -131,10 +132,13 @@ map <Leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
 map <Leader>s :split <C-R>=expand("%:p:h") . '/'<CR>
 map <Leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
 
+" Resize windows
+map <M-]> :set lines=61 columns=233
+map <M-[> :set lines=45 columns=150
+
 " Annoyances
 cmap W w
 cmap Q q
-cmap X x
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
@@ -152,4 +156,4 @@ function StripTrailingWhiteSpaces()
   let @/=_s
   call cursor(l, c)
 endfunction
-autocmd BufWritePre *.js,*.rb call StripTrailingWhiteSpaces()
+autocmd BufWritePre *.js,*.rb,*.html,*.erb,*.css call StripTrailingWhiteSpaces()
