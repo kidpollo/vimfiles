@@ -61,3 +61,6 @@
 [submodule "bundle/vim-surround"]
   path = bundle/vim-surround
   url = http://github.com/tpope/vim-surround.git
+[submodule "snippets"]
+	path = snippets
+	url = git@github.com:mexpolk/snippets.git
