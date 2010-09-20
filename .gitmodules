@@ -63,4 +63,4 @@
   url = http://github.com/tpope/vim-surround.git
 [submodule "snippets"]
 	path = snippets
-	url = git@github.com:mexpolk/snippets.git
+	url = http://github.com/akitaonrails/snipmate-snippets.git
